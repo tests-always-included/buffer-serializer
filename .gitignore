@@ -1,0 +1,31 @@
+.DS_Store
+._*
+.Trash*
+$*
+
+# Keys and Certs
+*.pem
+*.crt
+*.csr
+*.key
+
+# Backup files
+*.sw[g-p]
+*.bak
+*~
+*#
+
+# IDEs
+*.as3proj
+.buildpath
+.c9revisions/
+.cproject
+.project
+.idea/
+.settings*
+.metadata/
+nbproject/
+
+# Generated
+/node_modules/
+npm-debug.log
