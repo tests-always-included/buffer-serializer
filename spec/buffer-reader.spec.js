@@ -20,7 +20,7 @@ describe("BufferReader", () => {
         "uint16",
         "uint32"
     ].forEach((methodName) => {
-        it("exposes the method " + methodName, () => {
+        it("exposes the method: " + methodName, () => {
             var br;
 
             expect(() => {
