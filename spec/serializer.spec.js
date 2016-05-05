@@ -63,6 +63,14 @@ describe("serializer", () => {
             raw: -203040
         },
         {
+            //          O s 3 o b j t !
+            bufferHex: "4F73036F626A7421",
+            name: "0x4F O object, generic",
+            raw: {
+                obj: true
+            }
+        },
+        {
             bufferHex: "5000031920",
             name: "0x50 P positive 32-bit integer",
             raw: 203040
@@ -102,14 +110,6 @@ describe("serializer", () => {
             bufferHex: "6E",
             name: "0x6E n null",
             raw: null
-        },
-        {
-            //          o s 3 o b j t !
-            bufferHex: "6F73036F626A7421",
-            name: "0x6F o object, generic",
-            raw: {
-                obj: true
-            }
         },
         {
             bufferHex: "70012C",
