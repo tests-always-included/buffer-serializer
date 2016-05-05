@@ -169,6 +169,70 @@ describe("serializer", () => {
             }
         });
     });
-    // FIXME error messages
-    // FIXME - custom objects
+    describe("with bad input", () => {
+        it("fails with non-zero version identifier", () => {
+            expect(() => {
+                serializer.fromBuffer(new Buffer("0174", "hex"));
+            }).toThrow();
+        });
+        it("errors when encountering an invalid code", () => {
+            expect(() => {
+                serializer.fromBufferInternal(new Buffer("00", "hex"));
+            }).toThrow();
+        });
+        it("errors when a helper is not found", () => {
+            expect(() => {
+                var buffReader;
+
+                // Looks for a helper named "x"
+                buffReader = new BufferReader(new Buffer("5A0178", "hex"));
+                serializer.fromBufferInternal(buffReader);
+            }).toThrow();
+        });
+        it("fails with Symbols", () => {
+            expect(() => {
+                /*global Symbol*/
+                serializer.toBuffer(Symbol());
+            }).toThrow();
+        });
+        it("fails with undefined", () => {
+            expect(() => {
+                serializer.toBuffer(undefined);
+            }).toThrow();
+        });
+    });
+    describe("custom objects", () => {
+        var Klass;
+
+        beforeEach(() => {
+            Klass = function testClass(val) {
+                this.val = val;
+            };
+            Klass.prototype.getVal = function () {
+                return this.val;
+            };
+            serializer.register("Klass", (thing) => {
+                return thing instanceof Klass;
+            }, (thing, bufferWriter) => {
+                bufferWriter.size(thing.getVal());
+            }, (bufferReader) => {
+                return new Klass(bufferReader.size());
+            });
+        });
+        it("serializes a custom class", () => {
+            var buff, k;
+
+            k = new Klass(2);
+            buff = serializer.toBuffer(k);
+            expect(buff).toEqual(jasmine.any(Buffer));
+            expect(buff.toString("hex").toUpperCase()).toEqual("005A054B6C61737302");
+        });
+        it("deserializes a custom class", () => {
+            var k;
+
+            k = serializer.fromBuffer(new Buffer("005A054B6C61737302", "hex"));
+            expect(k).toEqual(jasmine.any(Klass));
+            expect(k.getVal()).toEqual(2);
+        });
+    });
 });

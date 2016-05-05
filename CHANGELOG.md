@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2016-05-05 - 1.0.2
+------------------
+
+* Added tests for custom handlers and errors.
+* Fixed broken parts for custom handlers.
+
+
 2016-05-05 - 1.0.1
 ------------------
 
