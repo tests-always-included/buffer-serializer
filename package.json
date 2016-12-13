@@ -1,6 +1,6 @@
 {
     "name": "buffer-serializer",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Convert JavaScript objects into Buffers and vice-versa.  Serializes objects using a compact storage mechanism.  Expandable to handle your own objects.",
     "main": "lib/index.js",
     "scripts": {

@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2016-12-13 - 1.1.0
+------------------
+
+* Changed to use a class instead of a single plain object.  This helps facilitate testing where you may want several serializers with different configurations in your project.
+
+
 2016-05-05 - 1.0.2
 ------------------
 

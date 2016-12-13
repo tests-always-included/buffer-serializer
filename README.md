@@ -23,9 +23,10 @@ First, include `buffer-serializer` in your list of dependencies in your `package
 
 Next, you write some code.
 
-    var aBuffer, myThing, result, serializer;
+    var aBuffer, BufferSerializer, myThing, result, serializer;
 
-    serializer = require("buffer-serializer");
+    BufferSerializer = require("buffer-serializer");
+    serializer = new BufferSerializer();
 
     myThing = {
         key: "value",
@@ -47,7 +48,7 @@ Learning about Other Objects
 
 You can teach the serializer about other object types as well.  To do that you need to register custom handlers to convert the data into a buffer and a second function that converts the buffer back into your object.  Here's an example for a Date object.
 
-    // This example is NOT what is used inside the serializer.
+    // This example is NOT used inside the serializer.
     // This code is provided only for illustrative purposes.
     serializer.register("Date", function checkFn(value) {
         return value instanceof Date;
@@ -137,7 +138,7 @@ There's built in support for these objects:
 * Date without milliseconds: "T" UInt32BE UInt16BE
     * UInt32BE: Unix time from the Date object (seconds)
 
-Custom objects are encoded slightly differently
+Custom objects are encoded slightly differently.
 
 * Custom object: "z" size name data
     * size: size of the name string (see below)
@@ -156,6 +157,12 @@ Sizes are encoded in a way to try to conserve bytes.  This does mean that there'
 
 Full API
 --------
+
+
+### `serializer = new BufferSerializer()`
+
+Create a new instance of the serializer.
+
 
 ### `serializer.register(name, checkFn, toBufferFn, fromBufferFn)`
 
