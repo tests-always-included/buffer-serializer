@@ -17,7 +17,6 @@ This is presented as an alternative to [js-binary](https://github.com/sitegui/js
 [![Build Status][travis-badge]][travis-link]
 [![Dependencies][dependencies-badge]][dependencies-link]
 [![Dev Dependencies][devdependencies-badge]][devdependencies-link]
-[![codecov.io][codecov-badge]][codecov-link]
 
 
 Usage
@@ -219,8 +218,6 @@ License
 This project is placed under an [MIT License][LICENSE].
 
 
-[codecov-badge]: https://codecov.io/github/tests-always-included/buffer-serializer/coverage.svg?branch=master
-[codecov-link]: https://codecov.io/github/tests-always-included/buffer-serializer?branch=master
 [dependencies-badge]: https://david-dm.org/tests-always-included/buffer-serializer.svg
 [dependencies-link]: https://david-dm.org/tests-always-included/buffer-serializer
 [devdependencies-badge]: https://david-dm.org/tests-always-included/buffer-serializer/dev-status.svg
