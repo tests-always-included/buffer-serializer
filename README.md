@@ -13,6 +13,12 @@ You may implement your own serialization routines to override this behavior if y
 
 This is presented as an alternative to [js-binary](https://github.com/sitegui/js-binary).  That one requires a schema where as this one acts more like JSON.
 
+[![npm version][npm-badge]][npm-link]
+[![Build Status][travis-badge]][travis-link]
+[![Dependencies][dependencies-badge]][dependencies-link]
+[![Dev Dependencies][devdependencies-badge]][devdependencies-link]
+[![codecov.io][codecov-badge]][codecov-link]
+
 
 Usage
 -----
@@ -210,4 +216,17 @@ The buffer writer object is available to help make writing to the buffer easier.
 License
 -------
 
-This project is placed under an [MIT License](LICENSE.md).
+This project is placed under an [MIT License][LICENSE].
+
+
+[codecov-badge]: https://codecov.io/github/tests-always-included/buffer-serializer/coverage.svg?branch=master
+[codecov-link]: https://codecov.io/github/tests-always-included/buffer-serializer?branch=master
+[dependencies-badge]: https://david-dm.org/tests-always-included/buffer-serializer.svg
+[dependencies-link]: https://david-dm.org/tests-always-included/buffer-serializer
+[devdependencies-badge]: https://david-dm.org/tests-always-included/buffer-serializer/dev-status.svg
+[devdependencies-link]: https://david-dm.org/tests-always-included/buffer-serializer#info=devDependencies
+[LICENSE]: LICENSE.md
+[npm-badge]: https://badge.fury.io/js/buffer-serializer.svg
+[npm-link]: https://npmjs.org/package/buffer-serializer
+[travis-badge]: https://secure.travis-ci.org/tests-always-included/buffer-serializer.svg
+[travis-link]: http://travis-ci.org/tests-always-included/buffer-serializer
