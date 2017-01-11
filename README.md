@@ -218,12 +218,12 @@ License
 This project is placed under an [MIT License][LICENSE].
 
 
-[dependencies-badge]: https://david-dm.org/tests-always-included/buffer-serializer.svg
+[dependencies-badge]: https://img.shields.io/david/tests-always-included/buffer-serializer.svg
 [dependencies-link]: https://david-dm.org/tests-always-included/buffer-serializer
-[devdependencies-badge]: https://david-dm.org/tests-always-included/buffer-serializer/dev-status.svg
+[devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/buffer-serializer.svg
 [devdependencies-link]: https://david-dm.org/tests-always-included/buffer-serializer#info=devDependencies
 [LICENSE]: LICENSE.md
-[npm-badge]: https://badge.fury.io/js/buffer-serializer.svg
+[npm-badge]: https://img.shields.io/npm/v/buffer-serializer.svg
 [npm-link]: https://npmjs.org/package/buffer-serializer
-[travis-badge]: https://secure.travis-ci.org/tests-always-included/buffer-serializer.svg
+[travis-badge]: https://img.shields.io/travis/tests-always-included/buffer-serializer/master.svg
 [travis-link]: http://travis-ci.org/tests-always-included/buffer-serializer
