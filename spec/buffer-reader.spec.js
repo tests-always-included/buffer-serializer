@@ -24,7 +24,7 @@ describe("BufferReader", () => {
             var br;
 
             expect(() => {
-                br = new BufferReader(new Buffer(1), 0);
+                br = new BufferReader(Buffer.alloc(1), 0);
             }).not.toThrow();
             expect(br[methodName]).toEqual(jasmine.any(Function));
         });
@@ -32,7 +32,7 @@ describe("BufferReader", () => {
     it("reads a buffer", () => {
         var br, buff;
 
-        br = new BufferReader(new Buffer("abcdefg"), 3);
+        br = new BufferReader(Buffer.from("abcdefg"), 3);
         buff = br.buffer(2);
         expect(buff.length).toBe(2);
         expect(buff.toString("binary")).toBe("de");
@@ -43,7 +43,7 @@ describe("BufferReader", () => {
     it("reads a double", () => {
         var br, buff;
 
-        buff = new Buffer(16);
+        buff = Buffer.alloc(16);
         buff.fill(0x42);
         buff[0] = 0x3F;
         buff[1] = 0;
@@ -60,7 +60,7 @@ describe("BufferReader", () => {
     it("peeks and skips", () => {
         var br;
 
-        br = new BufferReader(new Buffer("abcd"), 2);
+        br = new BufferReader(Buffer.from("abcd"), 2);
         expect(br.peek()).toBe("c".charCodeAt(0));
 
         // Pointer does not advance with this method
@@ -79,7 +79,7 @@ describe("BufferReader", () => {
     it("reads different sized sizes", () => {
         var br, buff;
 
-        buff = new Buffer(7);
+        buff = Buffer.alloc(7);
         buff[0] = 0x01;  // 1 byte
         buff[1] = 0x80;
         buff[2] = 0x02;  // 2 bytes
@@ -95,14 +95,14 @@ describe("BufferReader", () => {
     it("reads a string", () => {
         var br;
 
-        br = new BufferReader(new Buffer("abcdefghijklm"), 4);
+        br = new BufferReader(Buffer.from("abcdefghijklm"), 4);
         expect(br.string(5)).toBe("efghi");
         expect(br.string(3)).toBe("jkl");
     });
     it("reads different sized integers", () => {
         var br, buff;
 
-        buff = new Buffer(7);
+        buff = Buffer.alloc(7);
         buff[0] = 0x01;  // 1 byte
         buff[1] = 0x80;
         buff[2] = 0x02;  // 2 bytes
