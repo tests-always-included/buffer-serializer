@@ -53,7 +53,7 @@ describe("serializer", () => {
         {
             bufferHex: "420474657374",
             name: "0x42 B Buffer object",
-            raw: new Buffer("test")
+            raw: Buffer.from("test")
         },
         {
             bufferHex: "44568672700001",
@@ -149,7 +149,7 @@ describe("serializer", () => {
         it("deserializes: " + scenario.name, () => {
             var buff, result;
 
-            buff = new Buffer("00" + scenario.bufferHex, "hex");
+            buff = Buffer.from("00" + scenario.bufferHex, "hex");
             result = serializer.fromBuffer(buff);
 
             if (Buffer.isBuffer(scenario.raw)) {
@@ -161,7 +161,7 @@ describe("serializer", () => {
         it("deserializes internally: " + scenario.name, () => {
             var br, buff, result;
 
-            buff = new Buffer(scenario.bufferHex, "hex");
+            buff = Buffer.from(scenario.bufferHex, "hex");
             br = new BufferReader(buff);
             result = serializer.fromBufferInternal(br);
 
@@ -175,12 +175,12 @@ describe("serializer", () => {
     describe("with bad input", () => {
         it("fails with non-zero version identifier", () => {
             expect(() => {
-                serializer.fromBuffer(new Buffer("0174", "hex"));
+                serializer.fromBuffer(Buffer.from("0174", "hex"));
             }).toThrow();
         });
         it("errors when encountering an invalid code", () => {
             expect(() => {
-                serializer.fromBufferInternal(new Buffer("00", "hex"));
+                serializer.fromBufferInternal(Buffer.from("00", "hex"));
             }).toThrow();
         });
         it("errors when a helper is not found", () => {
@@ -188,7 +188,7 @@ describe("serializer", () => {
                 var buffReader;
 
                 // Looks for a helper named "x"
-                buffReader = new BufferReader(new Buffer("5A0178", "hex"));
+                buffReader = new BufferReader(Buffer.from("5A0178", "hex"));
                 serializer.fromBufferInternal(buffReader);
             }).toThrow();
         });
@@ -233,7 +233,7 @@ describe("serializer", () => {
         it("deserializes a custom class", () => {
             var k;
 
-            k = serializer.fromBuffer(new Buffer("005A054B6C61737302", "hex"));
+            k = serializer.fromBuffer(Buffer.from("005A054B6C61737302", "hex"));
             expect(k).toEqual(jasmine.any(Klass));
             expect(k.getVal()).toEqual(2);
         });

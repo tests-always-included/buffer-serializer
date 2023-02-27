@@ -32,8 +32,8 @@ describe("BufferWriter", () => {
         var buff, bw;
 
         bw = new BufferWriter();
-        bw.buffer(new Buffer("abc"));
-        bw.buffer(new Buffer("defghi"));
+        bw.buffer(Buffer.from("abc"));
+        bw.buffer(Buffer.from("defghi"));
         buff = bw.toBuffer();
         expect(buff).toEqual(jasmine.any(Buffer));
         expect(buff.toString("binary")).toEqual("abcdefghi");
